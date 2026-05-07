@@ -194,10 +194,10 @@ export default function MorphingCanvas({ reducedMotion }: MorphingCanvasProps) {
         else ctx.lineTo(p.x * secondarySize, p.y * secondarySize);
       });
       ctx.closePath();
-      ctx.strokeStyle = 'rgba(6, 214, 160, 0.35)';
+      ctx.strokeStyle = 'rgba(6, 214, 160, 0.12)';
       ctx.lineWidth = 1;
       ctx.stroke();
-      ctx.fillStyle = 'rgba(6, 214, 160, 0.08)';
+      ctx.fillStyle = 'rgba(6, 214, 160, 0.01)';
       ctx.fill();
       ctx.restore();
 
@@ -217,14 +217,14 @@ export default function MorphingCanvas({ reducedMotion }: MorphingCanvasProps) {
       });
       ctx.closePath();
 
-      ctx.strokeStyle = 'rgba(6, 214, 160, 0.55)';
+      ctx.strokeStyle = 'rgba(6, 214, 160, 0.25)';
       ctx.lineWidth = 1.5;
       ctx.stroke();
-      ctx.fillStyle = 'rgba(6, 214, 160, 0.12)';
+      ctx.fillStyle = 'rgba(6, 214, 160, 0.02)';
       ctx.fill();
 
       // Radial spokes
-      const spokeAlpha = 0.15 + Math.sin(elapsed * 0.001) * 0.15;
+      const spokeAlpha = 0.05 + Math.sin(elapsed * 0.001) * 0.05;
       for (let i = 0; i < spokeCount; i++) {
         const angle = (i / spokeCount) * Math.PI * 2 + elapsed * 0.0002;
         const r = size * 0.85;
@@ -239,7 +239,7 @@ export default function MorphingCanvas({ reducedMotion }: MorphingCanvasProps) {
       // Center dot
       ctx.beginPath();
       ctx.arc(0, 0, 2, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(6, 214, 160, 0.7)';
+      ctx.fillStyle = 'rgba(6, 214, 160, 0.3)';
       ctx.fill();
 
       ctx.restore();

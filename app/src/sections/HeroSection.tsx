@@ -46,7 +46,7 @@ export default function HeroSection({ reducedMotion }: HeroSectionProps) {
       tl.fromTo(
         canvasContainer,
         { opacity: 0 },
-        { opacity: 0.9, duration: 1.2, ease: 'power2.out' },
+        { opacity: 0.6, duration: 1.2, ease: 'power2.out' },
         0.3
       );
     }

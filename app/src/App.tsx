@@ -14,7 +14,7 @@ export default function App() {
           position: 'fixed',
           inset: 0,
           zIndex: 0,
-          opacity: reducedMotion ? 0.9 : 0,
+          opacity: reducedMotion ? 0.6 : 0,
         }}
       >
         <MorphingCanvas reducedMotion={reducedMotion} />
