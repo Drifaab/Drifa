@@ -1,7 +1,6 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import DrifaLogo from '@/components/DrifaLogo';
-import CountdownTimer from '@/components/CountdownTimer';
 import ScrollIndicator from '@/components/ScrollIndicator';
 
 interface HeroSectionProps {
@@ -12,13 +11,12 @@ export default function HeroSection({ reducedMotion }: HeroSectionProps) {
   const logoRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const sublineRef = useRef<HTMLParagraphElement>(null);
-  const timerRef = useRef<HTMLDivElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (reducedMotion) {
       // Show everything immediately
-      [logoRef, headlineRef, sublineRef, timerRef, scrollRef].forEach(
+      [logoRef, headlineRef, sublineRef, scrollRef].forEach(
         (ref) => {
           if (ref.current) {
             gsap.set(ref.current, { opacity: 1, y: 0 });
@@ -70,18 +68,12 @@ export default function HeroSection({ reducedMotion }: HeroSectionProps) {
       0.9
     );
 
-    // Phase 5: Timer & scroll indicator (1100ms)
-    tl.fromTo(
-      timerRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.6, ease: 'power2.out' },
-      1.1
-    );
+    // Phase 5: Scroll indicator (1100ms)
     tl.fromTo(
       scrollRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 0.6, ease: 'power2.out' },
-      1.2
+      1.1
     );
 
     return () => {
@@ -153,11 +145,6 @@ export default function HeroSection({ reducedMotion }: HeroSectionProps) {
         >
           Drifa specialiserar sig på banbrytande mjukvarulösningar. Vår nya webbplats är under utveckling.
         </p>
-
-        {/* Countdown Timer */}
-        <div ref={timerRef} style={{ opacity: 0 }}>
-          <CountdownTimer reducedMotion={reducedMotion} />
-        </div>
 
       </div>
 
